@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './dashboard.css';
+import DetailView from '../detailView/detailView';
 import TargetList from '../targetList/targetList';
+
 
 class Dashboard extends Component {
     constructor() {
@@ -25,7 +27,7 @@ class Dashboard extends Component {
 
     getWeatherData(url) {
         axios.get(url).then(({ data }) => {
-            this.setState({ data });
+            this.setData(data);
         })
         .catch(error => console.log(error));
     }
@@ -34,8 +36,8 @@ class Dashboard extends Component {
         this.setState({ isLoading: tOrF }) ;
     }
 
-    setData(val) {
-        this.setState({data: val});
+    setData(payload) {
+        this.setState({data: payload});
     }
     
     render() {
@@ -46,7 +48,7 @@ class Dashboard extends Component {
                         <TargetList setData={this.setData} {...this.state}/>
                     </div>
                     <div className="target_detail-view">
-                        detail view of target
+                        <DetailView {...this.state} />
                     </div>
                 </div>
             </div>
@@ -54,10 +56,5 @@ class Dashboard extends Component {
     }
 
 }
-
-// Dashboard.propTypes = {
-//     widgets: PropTypes.Array
-// };
-
 
 export default Dashboard;
