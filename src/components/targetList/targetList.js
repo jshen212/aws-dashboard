@@ -11,8 +11,9 @@ class TargetList extends Component {
     targetList = [
         {
             id: 1,
-            thumbnail: 'Hello',
-            link: 'World'
+            selectedDetailView: 'weather',
+            thumbnail: 'Weather',
+            link: 'Link'
         }
     ];
 
