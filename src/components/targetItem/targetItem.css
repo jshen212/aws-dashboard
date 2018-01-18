@@ -1,0 +1,8 @@
+.target_item {
+    display: flex;
+    flex-direction: row;
+}
+
+.thumbnail_div {
+    margin-right: 1em;
+}
