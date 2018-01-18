@@ -21,7 +21,7 @@ class DetailView extends Component {
         let selectedView = this.getDetailView(this.props.data.selectedDetailView)
 
         return (
-            <div class="view_selected-container">
+            <div className="view_selected-container">
                 {selectedView}
             </div>
         );
