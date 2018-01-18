@@ -4,9 +4,8 @@ import './dashboard.css';
 import TargetList from '../targetList/targetList';
 
 class Dashboard extends Component {
-    // TODO: setup list of targets
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             data: {},
@@ -21,12 +20,12 @@ class Dashboard extends Component {
             // this.getWeatherData(url);
         });
 
+        this.setData = this.setData.bind(this);
     }
 
     getWeatherData(url) {
         axios.get(url).then(({ data }) => {
             this.setState({ data });
-            console.log('initial state', this.state);
         })
         .catch(error => console.log(error));
     }
@@ -34,13 +33,17 @@ class Dashboard extends Component {
     isLoading(tOrF) {
         this.setState({ isLoading: tOrF }) ;
     }
+
+    setData(val) {
+        this.setState({data: val});
+    }
     
     render() {
         return (
             <div className="dashboard_view">
                 <div className="container_list-view">
                     <div className="target_list-container">
-                        <TargetList />
+                        <TargetList setData={this.setData} {...this.state}/>
                     </div>
                     <div className="target_detail-view">
                         detail view of target

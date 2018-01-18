@@ -3,6 +3,10 @@
     flex-direction: row;
 }
 
+.target_item:hover {
+    cursor: pointer;
+}
+
 .thumbnail_div {
     margin-right: 1em;
 }
