@@ -3,8 +3,9 @@ import axios from 'axios';
 import './weather.css';
 
 class Weather extends Component {
+    constructor(props) {
+        super(props);
 
-    componentDidMount() {
         navigator.geolocation.getCurrentPosition(position => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
@@ -12,22 +13,22 @@ class Weather extends Component {
 
             // this.getWeatherData(url);
         });
+
     }
 
     getWeatherData(url) {
-        console.log('hello world api');
-        axios.get(url).then(response => console.log('weatherrrr' ,response))
+        axios.get(url).then(weather => console.log(weather))
         .catch(error => console.log(error));
     }
 
     render() {
         return (
             <div className="weather_container">
-                <div class="weather_thumbnail">
+                <div className="weather_thumbnail">
                     {/* image here */}
                     HELLO
                 </div>
-                <div class="weather_link-description">
+                <div className="weather_link-description">
                     {/* link to click */}
                     world
                 </div>
