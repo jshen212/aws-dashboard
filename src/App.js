@@ -4,15 +4,12 @@ import './App.css';
 
 import Dashboard from './components/dashboard/dashboard';
 
-class App extends Component {
-
-  render() {
+const App = () => {
     return (
-      <div class="dashboard_div-container">
+      <div className="dashboard_div-container">
         <Dashboard />
       </div>
     );
-  }
 }
 
 export default App;
