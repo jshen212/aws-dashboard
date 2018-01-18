@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './dashboard.css';
-import Weather from '../weather/weather';
+import TargetList from '../targetList/targetList';
 
 class Dashboard extends Component {
     // TODO: setup list of targets
@@ -14,8 +14,8 @@ class Dashboard extends Component {
         };
 
         navigator.geolocation.getCurrentPosition(position => {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
+            // const lat = position.coords.latitude;
+            // const lon = position.coords.longitude;
             const url = 'https://0hpr5r9oi2.execute-api.us-west-1.amazonaws.com/prod/getLatLonWeather';
 
             // this.getWeatherData(url);
@@ -40,9 +40,7 @@ class Dashboard extends Component {
             <div className="dashboard_view">
                 <div className="container_list-view">
                     <div className="target_list-container">
-                        <ul className="target_list-items">
-                            <li className="target_list-item"><Weather /></li>
-                        </ul>
+                        <TargetList />
                     </div>
                     <div className="target_detail-view">
                         detail view of target
