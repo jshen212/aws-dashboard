@@ -1,0 +1,22 @@
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.container_list-view {
+    display: flex;
+    flex-direction: row;
+}
+
+.target_detail-view {
+    border: .2em solid red;
+    flex-grow: 15;
+    padding: 2em;
+}
+
+.target_list-container {
+    border: .2em solid blue;
+    margin-right: 1em;
+    flex-grow: 1;
+    padding: 2em;
+}
