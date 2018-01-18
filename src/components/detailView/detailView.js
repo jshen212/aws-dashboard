@@ -10,7 +10,7 @@ class DetailView extends Component {
     }
 
     getDetailView(selectedDetail) {
-        if(selectedDetail === 'weather') {
+        if(!selectedDetail || selectedDetail === 'weather') {
             return <WeatherDetail />;
         } else {
             return <div>not weather</div>;
