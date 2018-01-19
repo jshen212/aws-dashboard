@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ListItem } from 'material-ui/List';
 import './targetItem.css';
 
 class TargetItem extends Component {
@@ -21,7 +22,7 @@ class TargetItem extends Component {
 
     render() {
         return (
-            <li className="target_item" onClick={this.clickedItem}>
+        <ListItem className="target_item" onClick={this.clickedItem}>
                 <div className="thumbnail_div">
                     {/* image here */}
                     {this.props.target.thumbnail}
@@ -30,7 +31,7 @@ class TargetItem extends Component {
                     {/* link to click */}
                     {this.props.target.link}
                 </div>
-            </li>
+            </ListItem>
         );
     }
         

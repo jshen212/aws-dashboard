@@ -6,13 +6,13 @@ import Dashboard from './components/dashboard/dashboard';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const App = () => {
-    return (
-      <MuiThemeProvider>
-        <div className="dashboard_div-container">
-          <Dashboard />
-        </div>
-      </MuiThemeProvider>
-    );
+  return (
+    <MuiThemeProvider>
+      <div className="dashboard_div-container">
+        <Dashboard />
+      </div>
+    </MuiThemeProvider>
+  );
 }
 
 export default App;

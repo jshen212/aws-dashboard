@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { List } from 'material-ui/List';
 import TargetItem from '../targetItem/targetItem';
 import './targetList.css';
 
@@ -20,7 +21,7 @@ class TargetList extends Component {
     render() {
 
         return (
-            <ul className="container_list-view">
+            <List className="container_list-view">
                 {this.targetList.map((target) => 
                     <TargetItem 
                         key={target.id} 
@@ -28,7 +29,7 @@ class TargetList extends Component {
                         setData={this.props.setData} 
                         {...this.props}/> 
                 )}
-            </ul>
+            </List>
         );
     }
     
