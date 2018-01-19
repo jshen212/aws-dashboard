@@ -20,16 +20,28 @@ class TargetItem extends Component {
         this.props = nextProps;
     }
 
+    getIcon() {
+        const target = this.props.target.topic;
+        let icon = <div>Error in getting icon</div>;
+
+        if(target === 'weather') {
+            icon = <i className="material-icons">cloud_queue</i>;
+        }
+
+        return icon;
+    }
+
     render() {
         return (
-        <ListItem className="target_item" onClick={this.clickedItem}>
-                <div className="thumbnail_div">
-                    {/* image here */}
-                    {this.props.target.thumbnail}
-                </div>
-                <div className="link_div">
-                    {/* link to click */}
-                    {this.props.target.link}
+            <ListItem onClick={this.clickedItem}>
+                <div className="target_item">
+                    <div>
+                        {this.getIcon()}
+                    </div>
+                    <div className="thumbnail_div">
+                        {/* image here */}
+                        {this.props.target.title}
+                    </div>
                 </div>
             </ListItem>
         );

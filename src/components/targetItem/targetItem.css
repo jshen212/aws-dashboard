@@ -8,5 +8,10 @@
 }
 
 .thumbnail_div {
-    margin-right: 1em;
+    margin: 0 1em 0 0.3em;
+    padding-top: 0.3em;
+}
+
+.link_div {
+    padding-top: 0.3em;
 }

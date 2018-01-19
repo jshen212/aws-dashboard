@@ -13,8 +13,9 @@ class TargetList extends Component {
         {
             id: 1,
             selectedDetailView: 'weather',
-            thumbnail: 'Weather',
-            link: 'Link'
+            topic: 'weather',
+            title: 'Open Weather Map',
+            link: 'link'
         }
     ];
 
