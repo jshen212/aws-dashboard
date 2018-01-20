@@ -15,21 +15,26 @@ class Dashboard extends Component {
         };
 
         navigator.geolocation.getCurrentPosition(position => {
-            // const lat = position.coords.latitude;
-            // const lon = position.coords.longitude;
-            const url = 'https://0hpr5r9oi2.execute-api.us-west-1.amazonaws.com/prod/getLatLonWeather';
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const url = 'https://8yq2a86ptc.execute-api.us-west-1.amazonaws.com/prod/getWeather';
 
-            // this.getWeatherData(url);
+            this.getWeatherData(url, lat, lon);
         });
 
         this.setData = this.setData.bind(this);
     }
 
-    getWeatherData(url) {
-        axios.get(url).then(({ data }) => {
+    getWeatherData(url, lat, lon) {
+
+        axios.get(url, {
+            params: {
+                'lat': lat,
+                'lon': lon
+              }
+        }).then(({ data }) => {
             this.setData(data);
-        })
-        .catch(error => console.log(error));
+        }).catch(error => console.log(error));
     }
 
     isLoading(tOrF) {
