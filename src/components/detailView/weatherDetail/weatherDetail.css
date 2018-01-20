@@ -1,0 +1,30 @@
+/* .weather_bg-div {
+    background-image: url('https://cdn.londonandpartners.com/asset/hm-tower-of-london-image-040-ae1b582d5c7d24c210fef7c4573af37b.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: fill;
+} */
+
+.weather_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather_location,
+.weather_temp,
+.weather_thumbnail,
+.weather_description {
+    text-align: center;
+}
+
+.weather_thumbnail {
+    border: .2em solid green;
+    flex: 1;
+    padding: 1em;
+}
+
+.weather_description {
+    border: .2em solid purple;
+    flex: 4;
+    padding: 1em;
+}

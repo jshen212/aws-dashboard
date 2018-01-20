@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { List } from 'material-ui/List';
-import TargetItem from '../targetItem/targetItem';
+import TargetItem from './targetItem/targetItem';
 import './targetList.css';
 
 class TargetList extends Component {
