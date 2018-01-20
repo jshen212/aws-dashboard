@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import WeatherDetail from '../weatherDetail/weatherDetail';
+import WeatherDetail from './weatherDetail/weatherDetail';
 
 class DetailView extends Component {
-
-
 
     constructor(props) {
         super(props);
@@ -11,9 +9,9 @@ class DetailView extends Component {
 
     getDetailView(selectedDetail) {
         if(!selectedDetail || selectedDetail === 'weather') {
-            return <WeatherDetail />;
+            return <WeatherDetail {...this.props}/>;
         } else {
-            return <div>not weather</div>;
+            return <div>Error getting detail view</div>;
         }
     }
 
