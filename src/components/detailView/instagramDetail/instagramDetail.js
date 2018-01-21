@@ -4,8 +4,10 @@ import _ from 'lodash';
 class Instagram extends Component {
 
     componentWillReceiveProps(newProps) {
+        const data = (() => newProps.data.data)();
+
         if(newProps && newProps.topic === 'instagram') {
-            console.log('instagram detail receiving props');
+            console.log('instagram new props', data);
         }
     }
 

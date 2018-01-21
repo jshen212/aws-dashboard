@@ -40,11 +40,7 @@ class Dashboard extends Component {
     getInstagramData() {
         const instagramUrl = 'https://4vkcig5rk1.execute-api.us-west-1.amazonaws.com/prod/getInstagramFeed';
 
-        axios.get(instagramUrl).then((instagramData) => {
-            this.setState({
-                data: instagramData
-            });
-        });
+        axios.get(instagramUrl).then(({ data }) => this.setState({ data }));
     }
 
     isLoading(tOrF) {
