@@ -16,13 +16,19 @@ class TargetList extends Component {
             topic: 'weather',
             title: 'Open Weather Map',
             link: 'link'
-        }
+        },
+        {
+            id: 2,
+            selectedDetailView: 'instagram',
+            topic: 'instagram',
+            title: 'Instagram',
+            link: 'link'
+        },
     ];
 
     render() {
-
-        return (
-            <List className="container_list-view">
+        return (            
+            <List className="container_targetList-view">
                 {this.targetList.map((target) => 
                     <TargetItem 
                         key={target.id} 

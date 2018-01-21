@@ -11,30 +11,40 @@ class Dashboard extends Component {
 
         this.state = {
             data: {},
+            topic: 'weather',
             isLoading: true
         };
+        
+        this.getWeatherData();
+        this.setData = this.setData.bind(this);
+    }
+
+    getWeatherData() {
+        const weatherUrl = 'https://8yq2a86ptc.execute-api.us-west-1.amazonaws.com/prod/getWeather';
+        
 
         navigator.geolocation.getCurrentPosition(position => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
-            const url = 'https://8yq2a86ptc.execute-api.us-west-1.amazonaws.com/prod/getWeather';
-
-            this.getWeatherData(url, lat, lon);
+            
+            axios.get(weatherUrl, {
+                params: {
+                    'lat': lat,
+                    'lon': lon
+                  }
+            }).then(({data}) => this.setState({ data })).catch(error => console.log(error));
         });
 
-        this.setData = this.setData.bind(this);
     }
 
-    getWeatherData(url, lat, lon) {
+    getInstagramData() {
+        const instagramUrl = 'https://4vkcig5rk1.execute-api.us-west-1.amazonaws.com/prod/getInstagramFeed';
 
-        axios.get(url, {
-            params: {
-                'lat': lat,
-                'lon': lon
-              }
-        }).then(({ data }) => {
-            this.setData(data);
-        }).catch(error => console.log(error));
+        axios.get(instagramUrl).then((instagramData) => {
+            this.setState({
+                data: instagramData
+            });
+        });
     }
 
     isLoading(tOrF) {
@@ -42,7 +52,13 @@ class Dashboard extends Component {
     }
 
     setData(payload) {
-        this.setState({data: payload});
+        if(payload.topic === 'weather') {
+            this.setState({ topic: 'weather' });
+            this.getWeatherData();
+        } else if(payload.topic === 'instagram') {
+            this.setState({ topic: 'instagram' });
+            this.getInstagramData();
+        }
     }
     
     render() {
@@ -50,7 +66,9 @@ class Dashboard extends Component {
             <div className="dashboard_view">
                 <div className="container_list-view">
                     <div className="target_list-container">
-                        <TargetList setData={this.setData} {...this.state}/>
+                        <TargetList 
+                            setData={this.setData} 
+                            {...this.state}/>
                     </div>
                     <div className="target_detail-view">
                         <DetailView {...this.state} />

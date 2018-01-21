@@ -26,6 +26,8 @@ class TargetItem extends Component {
 
         if(target === 'weather') {
             icon = <i className="material-icons">cloud_queue</i>;
+        } else if(target === 'instagram') {
+            icon = <i className="material-icons">local_see</i>
         }
 
         return icon;
@@ -39,7 +41,6 @@ class TargetItem extends Component {
                         {this.getIcon()}
                     </div>
                     <div className="thumbnail_div">
-                        {/* image here */}
                         {this.props.target.title}
                     </div>
                 </div>
