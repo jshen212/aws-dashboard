@@ -2230,10 +2230,16 @@ If you have ideas for more “How To” recipes that should be on this page, [le
 
 
 
-<!-- React.js
+<!-- 
+Lodash
+Material design icons
+Material ui
+React.js
+React Router
 Axios
 Flexbox 
 AWS S3
 AWS API Gateway
 AWS Lambda
-Open Weather Map-->
+Open Weather Map
+-->
