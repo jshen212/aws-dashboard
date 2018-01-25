@@ -1,0 +1,26 @@
+.container_list-view {
+    border: .2em solid blue;
+    display: flex;
+    flex-grow: 2;
+    font-size: 16px;
+    margin: 0 1em 0 0;
+    padding: 2em;
+}
+
+.target_detail-view {
+    border: .2em solid red;
+    flex-grow: 15;
+    padding: 2em;
+}
+
+.target_list-container {
+    border: .2em solid blue;
+    display: flex;
+    flex-direction: column;
+    padding: 0.8em;
+}
+
+.target_list-container > div {
+    display: flex;
+    flex-direction: column;
+} 

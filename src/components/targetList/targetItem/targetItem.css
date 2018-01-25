@@ -1,0 +1,17 @@
+.target_item {
+    display: flex;
+    flex-direction: row;
+}
+
+.target_item:hover {
+    cursor: pointer;
+}
+
+.thumbnail_div {
+    margin: 0 1em 0 0.3em;
+    padding-top: 0.3em;
+}
+
+.link_div {
+    padding-top: 0.3em;
+}
