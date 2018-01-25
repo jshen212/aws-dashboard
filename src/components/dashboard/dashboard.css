@@ -14,7 +14,7 @@
 }
 
 .target_list-container {
-    border: .2em solid blue;
+    border: .2em solid green;
     display: flex;
     flex-direction: column;
     padding: 0.8em;

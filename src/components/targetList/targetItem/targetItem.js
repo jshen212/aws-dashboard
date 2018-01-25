@@ -35,7 +35,6 @@ class TargetItem extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <ListItem onClick={this.clickedItem}>
                 <div className="target_item">

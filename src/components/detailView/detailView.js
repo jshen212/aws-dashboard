@@ -9,19 +9,7 @@ class DetailView extends Component {
         super(props);
     }
 
-    // getDetailView(selectedDetail) {
-    //     if(!selectedDetail || selectedDetail === 'weather') {
-    //         return <WeatherDetail {...this.props}/>;
-    //     } else if (selectedDetail === 'instagram') {
-    //         return <InstagramDetail {...this.props}/>;
-    //     } else {
-    //         return <div>Error getting detail view</div>;
-    //     }
-    // }
-
     render() {
-        // let selectedView = this.getDetailView(this.props.topic)
-
         return (
             <div className="view_selected-container">
                 <Switch>
@@ -37,7 +25,6 @@ class DetailView extends Component {
                 </Switch>
             </div>
         );
-
     }
 
 }
