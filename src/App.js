@@ -6,9 +6,7 @@ import Dashboard from './components/dashboard/dashboard';
 const App = () => {
   return (
     <MuiThemeProvider>
-      <div className="dashboard_div-container">
         <Dashboard />
-      </div>
     </MuiThemeProvider>
   );
 }
