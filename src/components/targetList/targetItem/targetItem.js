@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { ListItem } from 'material-ui/List';
 import './targetItem.css';
 
@@ -34,6 +35,7 @@ class TargetItem extends Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <ListItem onClick={this.clickedItem}>
                 <div className="target_item">
@@ -41,7 +43,7 @@ class TargetItem extends Component {
                         {this.getIcon()}
                     </div>
                     <div className="thumbnail_div">
-                        {this.props.target.title}
+                        <Link to={'/'+this.props.target.topic}>{this.props.target.title}</Link>
                     </div>
                 </div>
             </ListItem>

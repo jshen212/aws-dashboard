@@ -17,6 +17,7 @@ class Weather extends Component {
     }
 
     componentWillReceiveProps(newProps) {
+        // console.log('new props here', newProps);
         if(newProps && newProps.topic === 'weather') {
             let weatherObj = newProps.data.list.length ? newProps.data.list[0] : null;
             let location = weatherObj ? weatherObj.name : null;
