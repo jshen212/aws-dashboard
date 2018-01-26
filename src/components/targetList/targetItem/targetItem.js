@@ -36,16 +36,18 @@ class TargetItem extends Component {
 
     render() {
         return (
-            <ListItem onClick={this.clickedItem}>
-                <div className="target_item">
-                    <div>
-                        {this.getIcon()}
+            <Link to={'/'+this.props.target.topic}>
+                <ListItem onClick={this.clickedItem}>
+                    <div className="target_item">
+                        <div>
+                            {this.getIcon()}
+                        </div>
+                        <div className="thumbnail_div">
+                            {this.props.target.title}
+                        </div>
                     </div>
-                    <div className="thumbnail_div">
-                        <Link to={'/'+this.props.target.topic}>{this.props.target.title}</Link>
-                    </div>
-                </div>
-            </ListItem>
+                </ListItem>
+            </Link>
         );
     }
         

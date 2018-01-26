@@ -45,6 +45,7 @@ class Weather extends Component {
                         <p>{this.weatherObj.temperature}°F</p>
                     </div>
                     <div className='weather_thumbnail'>
+                        {/* <img src={`http://aws-dashjeff.s3-website-us-west-1.amazonaws.com/assets/${this.weatherObj.icon}.png`} alt='weather_icon' /> */}
                         <img src={`./assets/${this.weatherObj.icon}.png`} alt='weather_icon' />
                     </div>
                     <div className='weather_description'>

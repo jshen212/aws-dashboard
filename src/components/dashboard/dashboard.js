@@ -20,9 +20,21 @@ class Dashboard extends Component {
     }
 
     getWeatherData() {
+        // const googleGeolocationUrl = 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCwjh8V0AKZW6y1do_AfxVPBplguJGnGzo';
         const weatherUrl = 'https://8yq2a86ptc.execute-api.us-west-1.amazonaws.com/prod/getWeather';
         
-
+        // axios.post(googleGeolocationUrl, null).then(({data}) => {
+        //     const lat = data.location.lat;
+        //     const lon = data.location.lon;
+            
+        //     axios.get(weatherUrl, {
+        //         params: {
+        //             'lat': lat,
+        //             'lon': lon
+        //           }
+        //     }).then(({data}) => this.setState({ data })).catch(error => console.log(error));
+        // })
+        
         navigator.geolocation.getCurrentPosition(position => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
