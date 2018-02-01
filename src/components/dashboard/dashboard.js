@@ -20,11 +20,9 @@ class Dashboard extends Component {
     }
 
     getAlphaVantageData() {
-        const alphaVantageUrl = '';
+        const alphaVantageUrl = 'https://tzx4qkjiif.execute-api.us-west-1.amazonaws.com/prod/getAlphaVantageData';
 
-        axios.get(alphaVantageUrl).then(response => {
-            console.log(response);
-        })
+        axios.get(alphaVantageUrl).then(({data}) => this.setState({ data }))
         .catch(error => console.log('Error fetching Alpha Vantage data', error));
     }
 
@@ -58,12 +56,14 @@ class Dashboard extends Component {
     }
 
     setData(payload) {
+        this.setState({ topic: payload.topic });
+
         if(payload.topic === 'weather') {
-            this.setState({ topic: 'weather' });
             this.getWeatherData();
         } else if(payload.topic === 'instagram') {
-            this.setState({ topic: 'instagram' });
             this.getInstagramData();
+        } else if(payload.topic === 'stocks') {
+            this.getAlphaVantageData()
         }
     }
     

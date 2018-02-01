@@ -30,7 +30,7 @@ class TargetItem extends Component {
         } else if(target === 'instagram') {
             icon = <i className="material-icons">local_see</i>;
         } else if(target === 'stocks') {
-            icon= <i class="material-icons">attach_money</i>;
+            icon= <i className="material-icons">attach_money</i>;
         }
 
         return icon;
