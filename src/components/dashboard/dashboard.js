@@ -19,10 +19,23 @@ class Dashboard extends Component {
         this.setData = this.setData.bind(this);
     }
 
+    getAlphaVantageData() {
+        const alphaVantageUrl = 'https://tzx4qkjiif.execute-api.us-west-1.amazonaws.com/prod/getAlphaVantageData';
+
+        axios.get(alphaVantageUrl).then(({data}) => this.setState({ data }))
+        .catch(error => console.log('Error fetching Alpha Vantage data', error));
+    }
+
+    getInstagramData() {
+        const instagramUrl = 'https://4vkcig5rk1.execute-api.us-west-1.amazonaws.com/prod/getInstagramFeed';
+
+        axios.get(instagramUrl).then(({ data }) => this.setState({ data }))
+        .catch(error => console.log('Error in getting Instagram data', error));
+    }
+
     getWeatherData() {
         const weatherUrl = 'https://8yq2a86ptc.execute-api.us-west-1.amazonaws.com/prod/getWeather';
         
-
         navigator.geolocation.getCurrentPosition(position => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
@@ -32,15 +45,10 @@ class Dashboard extends Component {
                     'lat': lat,
                     'lon': lon
                   }
-            }).then(({data}) => this.setState({ data })).catch(error => console.log(error));
+            }).then(({data}) => this.setState({ data }))
+            .catch(error => console.log('Error in getting Open Weather Map data', error));
         });
 
-    }
-
-    getInstagramData() {
-        const instagramUrl = 'https://4vkcig5rk1.execute-api.us-west-1.amazonaws.com/prod/getInstagramFeed';
-
-        axios.get(instagramUrl).then(({ data }) => this.setState({ data }));
     }
 
     isLoading(tOrF) {
@@ -48,12 +56,14 @@ class Dashboard extends Component {
     }
 
     setData(payload) {
+        this.setState({ topic: payload.topic });
+
         if(payload.topic === 'weather') {
-            this.setState({ topic: 'weather' });
             this.getWeatherData();
         } else if(payload.topic === 'instagram') {
-            this.setState({ topic: 'instagram' });
             this.getInstagramData();
+        } else if(payload.topic === 'stocks') {
+            this.getAlphaVantageData()
         }
     }
     

@@ -18,7 +18,7 @@
 }
 
 .weather_thumbnail {
-    border: .2em solid green;
+    border: .2em solid orange;
     flex: 1;
     padding: 1em;
 }

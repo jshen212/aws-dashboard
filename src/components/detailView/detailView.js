@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import WeatherDetail from './weatherDetail/weatherDetail';
 import InstagramDetail from './instagramDetail/instagramDetail';
+import AlphaVantageDetail from './alphaVantageDetail/alphaVantageDetail';
 
 class DetailView extends Component {
 
@@ -9,19 +10,7 @@ class DetailView extends Component {
         super(props);
     }
 
-    // getDetailView(selectedDetail) {
-    //     if(!selectedDetail || selectedDetail === 'weather') {
-    //         return <WeatherDetail {...this.props}/>;
-    //     } else if (selectedDetail === 'instagram') {
-    //         return <InstagramDetail {...this.props}/>;
-    //     } else {
-    //         return <div>Error getting detail view</div>;
-    //     }
-    // }
-
     render() {
-        // let selectedView = this.getDetailView(this.props.topic)
-
         return (
             <div className="view_selected-container">
                 <Switch>
@@ -34,10 +23,12 @@ class DetailView extends Component {
                     <Route path='/instagram' render={() => (
                         <InstagramDetail {...this.props} />
                     )}/>
+                    <Route path='/stocks' render={() => (
+                        <AlphaVantageDetail {...this.props} />
+                    )}/>
                 </Switch>
             </div>
         );
-
     }
 
 }

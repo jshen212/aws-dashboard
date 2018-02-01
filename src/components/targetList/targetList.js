@@ -14,16 +14,20 @@ class TargetList extends Component {
             id: 1,
             selectedDetailView: 'weather',
             topic: 'weather',
-            title: 'Open Weather Map',
-            link: 'link'
+            title: 'Open Weather Map'
         },
         {
             id: 2,
             selectedDetailView: 'instagram',
             topic: 'instagram',
-            title: 'Instagram',
-            link: 'link'
+            title: 'Instagram'
         },
+        {
+            id: 3,
+            selectedDetailView: 'stocks',
+            topic: 'stocks',
+            title: 'Alpha Vantage'
+        }
     ];
 
     render() {

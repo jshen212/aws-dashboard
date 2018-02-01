@@ -3,22 +3,32 @@ import _ from 'lodash';
 
 class Instagram extends Component {
 
-    componentWillReceiveProps(newProps) {
-        const data = (() => newProps.data.data)();
+    data = [];
 
+    constructor() {
+        super();
+    }
+
+    componentWillReceiveProps(newProps) {
         if(newProps && newProps.topic === 'instagram') {
-            console.log('instagram new props', data);
+            if(!this.data.length) {
+                this.data = (() => newProps.data.data)();
+            }
         }
     }
 
     render() {
         return (
             <div className='instagram_container'>
-                <div className='instagram_user-div'>
-                    Instagram
-                </div>
-                <div className='instagram_feed-div'>
-                    Component
+                <div className='flex-grid-thirds'>
+                    <div className='testing'></div>
+                    {this.data.map((item) => {
+                        return (
+                            <div className="col" key={item.id}>
+                                <img src={item.images.standard_resolution.url} />
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         );
