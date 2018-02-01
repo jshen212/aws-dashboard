@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import WeatherDetail from './weatherDetail/weatherDetail';
 import InstagramDetail from './instagramDetail/instagramDetail';
+import AlphaVantageDetail from './alphaVantageDetail/alphaVantageDetail';
 
 class DetailView extends Component {
 
@@ -21,6 +22,9 @@ class DetailView extends Component {
                     )}/>
                     <Route path='/instagram' render={() => (
                         <InstagramDetail {...this.props} />
+                    )}/>
+                    <Route path='/stocks' render={() => (
+                        <AlphaVantageDetail {...this.props} />
                     )}/>
                 </Switch>
             </div>

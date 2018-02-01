@@ -28,7 +28,9 @@ class TargetItem extends Component {
         if(target === 'weather') {
             icon = <i className="material-icons">cloud_queue</i>;
         } else if(target === 'instagram') {
-            icon = <i className="material-icons">local_see</i>
+            icon = <i className="material-icons">local_see</i>;
+        } else if(target === 'stocks') {
+            icon= <i class="material-icons">attach_money</i>;
         }
 
         return icon;
