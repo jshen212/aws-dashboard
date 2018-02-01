@@ -19,21 +19,24 @@ class Dashboard extends Component {
         this.setData = this.setData.bind(this);
     }
 
+    getAlphaVantageData() {
+        const alphaVantageUrl = '';
+
+        axios.get(alphaVantageUrl).then(response => {
+            console.log(response);
+        })
+        .catch(error => console.log('Error fetching Alpha Vantage data', error));
+    }
+
+    getInstagramData() {
+        const instagramUrl = 'https://4vkcig5rk1.execute-api.us-west-1.amazonaws.com/prod/getInstagramFeed';
+
+        axios.get(instagramUrl).then(({ data }) => this.setState({ data }))
+        .catch(error => console.log('Error in getting Instagram data', error));
+    }
+
     getWeatherData() {
-        // const googleGeolocationUrl = 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCwjh8V0AKZW6y1do_AfxVPBplguJGnGzo';
         const weatherUrl = 'https://8yq2a86ptc.execute-api.us-west-1.amazonaws.com/prod/getWeather';
-        
-        // axios.post(googleGeolocationUrl, null).then(({data}) => {
-        //     const lat = data.location.lat;
-        //     const lon = data.location.lon;
-            
-        //     axios.get(weatherUrl, {
-        //         params: {
-        //             'lat': lat,
-        //             'lon': lon
-        //           }
-        //     }).then(({data}) => this.setState({ data })).catch(error => console.log(error));
-        // })
         
         navigator.geolocation.getCurrentPosition(position => {
             const lat = position.coords.latitude;
@@ -44,15 +47,10 @@ class Dashboard extends Component {
                     'lat': lat,
                     'lon': lon
                   }
-            }).then(({data}) => this.setState({ data })).catch(error => console.log(error));
+            }).then(({data}) => this.setState({ data }))
+            .catch(error => console.log('Error in getting Open Weather Map data', error));
         });
 
-    }
-
-    getInstagramData() {
-        const instagramUrl = 'https://4vkcig5rk1.execute-api.us-west-1.amazonaws.com/prod/getInstagramFeed';
-
-        axios.get(instagramUrl).then(({ data }) => this.setState({ data }));
     }
 
     isLoading(tOrF) {
