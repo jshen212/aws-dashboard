@@ -10,6 +10,8 @@ class Weather extends Component {
 
     constructor(props) {
         super(props);
+
+        this.getData();
     }
 
     roundToDecimals(num, places) {
@@ -17,20 +19,29 @@ class Weather extends Component {
     }
 
     componentWillReceiveProps(newProps) {
-        // console.log('new props here', newProps);
         if(newProps && newProps.topic === 'weather') {
-            let weatherObj = newProps.data.list.length ? newProps.data.list[0] : null;
-            let location = weatherObj ? weatherObj.name : null;
-            let condition = weatherObj ? weatherObj.weather[0].main : null;
-            let icon = weatherObj ? weatherObj.weather[0].icon : null;
-            let temperature = weatherObj ? (weatherObj.main.temp * 9) / 5 - 459.67 : null;
-            
-            _.assign(this.weatherObj, {
-                location: location,
-                condition: condition,
-                icon: icon,
-                temperature: this.roundToDecimals(temperature, 2)
-            });
+            if(!_.isEmpty(newProps.data) && newProps.data.list) {
+                let weatherObj = newProps.data.list && newProps.data.list.length ? newProps.data.list[0] : null;
+                let location = weatherObj ? weatherObj.name : null;
+                let condition = weatherObj ? weatherObj.weather[0].main : null;
+                let icon = weatherObj ? weatherObj.weather[0].icon : null;
+                let temperature = weatherObj ? (weatherObj.main.temp * 9) / 5 - 459.67 : null;
+                
+                _.assign(this.weatherObj, {
+                    location: location,
+                    condition: condition,
+                    icon: icon,
+                    temperature: this.roundToDecimals(temperature, 2)
+                });
+            }
+        }
+    }
+
+    getData() {
+        let windowPath = window.location.pathname;
+
+        if(windowPath === '/' || windowPath === '/weather') {
+            this.props.setData({topic: 'weather'});
         }
     }
 

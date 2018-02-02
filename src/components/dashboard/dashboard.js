@@ -77,7 +77,9 @@ class Dashboard extends Component {
                             {...this.state}/>
                     </div>
                     <div className="target_detail-view">
-                        <DetailView {...this.state} />
+                        <DetailView 
+                            setData={this.setData} 
+                            {...this.state} />
                     </div>
                 </div>
             </div>

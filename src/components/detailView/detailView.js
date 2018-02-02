@@ -15,16 +15,24 @@ class DetailView extends Component {
             <div className="view_selected-container">
                 <Switch>
                     <Route exact path='/' render={() => (
-                        <WeatherDetail {...this.props} />
+                        <WeatherDetail 
+                            setData={this.setData} 
+                            {...this.props} />
                     )}/>
                     <Route path='/weather' render={() => (
-                        <WeatherDetail {...this.props} />
+                        <WeatherDetail 
+                            setData={this.setData} 
+                            {...this.props} />
                     )}/>
                     <Route path='/instagram' render={() => (
-                        <InstagramDetail {...this.props} />
+                        <InstagramDetail 
+                            setData={this.setData} 
+                            {...this.props} />
                     )}/>
                     <Route path='/stocks' render={() => (
-                        <AlphaVantageDetail {...this.props} />
+                        <AlphaVantageDetail 
+                            setData={this.setData} 
+                            {...this.props} />
                     )}/>
                 </Switch>
             </div>

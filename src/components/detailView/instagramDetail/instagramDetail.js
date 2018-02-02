@@ -5,15 +5,23 @@ class Instagram extends Component {
 
     data = [];
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
+        this.getData();
     }
 
     componentWillReceiveProps(newProps) {
         if(newProps && newProps.topic === 'instagram') {
             if(!this.data.length) {
-                this.data = (() => newProps.data.data)();
+                _.assign(this.data, newProps.data.data);
             }
+        }
+    }
+
+    getData() {
+        if(window.location.pathname === '/instagram') {
+            this.props.setData({topic: 'instagram'})
         }
     }
 
